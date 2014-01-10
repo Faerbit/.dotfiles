@@ -1,0 +1,42 @@
+copy_img_to_usb(){
+    if [[ $1 = "" ]]
+    then
+        return 1
+    fi
+    FILE=$1
+    FILESIZE=$(stat -c%s  "$1")
+    TARGET=$2
+    lsblk
+    echo "Are you sure you want to copy $FILE to $TARGET?"
+    read
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        sudo umount $TARGET?*
+        dd bs=4M if=$FILE | pv -s $FILESIZE | sudo dd of=$TARGET && sync
+    fi
+}
+
+cdtemp(){
+    local tmpfolder=$(mktemp -d)
+    cd $tmpfolder
+    aliasstring="change_dir $tmpfolder "
+    #delete folder if cd out of it
+    alias cd=$aliasstring
+}
+
+#belongs to the cdtemp function
+change_dir(){
+    #If no dir is specified go to home directory as expected
+    if [[ $2 = "" ]]
+    then
+        cd
+    else
+        cd "$2"
+    fi
+    if [ ! $(expr match $(pwd) '\(/tmp/tmp.[a-zA-Z0-9]*\)') ] 
+    then 
+        echo "Deleting tmp folder $1." 
+        rm -rf "$1"
+        unalias cd 
+    fi
+}
