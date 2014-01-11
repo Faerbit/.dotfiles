@@ -40,3 +40,27 @@ change_dir(){
         unalias cd 
     fi
 }
+
+#from arch wiki
+pacman_disowned(){
+    tmp=${TMPDIR-/tmp}/pacman-disowned-$UID-$$
+    db=$tmp/db
+    fs=$tmp/fs
+
+    mkdir "$tmp"
+    trap 'rm -rf "$tmp"' EXIT
+
+    pacman -Qlq | sort -u > "$db"
+    #I added:
+    #/etc/ssl/certs
+    #/usr/lib/python
+    #/usr/share/mime
+    find /bin /etc /sbin /usr \
+      ! -name lost+found\
+      ! -path "/etc/ssl/certs/*"\
+      ! -path "/usr/lib/python*"\
+      ! -path "/usr/share/mime/*"\
+      \( -type d -printf '%p/\n' -o -print \) | sort > "$fs"
+
+    comm -23 "$fs" "$db"
+}
