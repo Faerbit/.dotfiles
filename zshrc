@@ -20,6 +20,7 @@ setopt HIST_IGNORE_SPACE
 #Do not store ls and cd
 alias cd=' cd'
 alias ls=' ls --color=auto'
+alias resource='source ~/.zshrc'
 if [ -f .zsh_environment ]
 then
   source ~/.zsh_environment
