@@ -10,6 +10,8 @@ alias clear-orphans='pacman -Rns $(pacman -Qqdt)'
 alias rmtex='rm *.log; rm *.aux'
 alias ghibernate='gnome-screensaver-command --lock && sudo pm-hibernate'
 alias load-vboxdrivers='modprobe -a vboxdrv vboxnetadp vboxnetflt'
+#overwrite "default(?)" with my own function
+alias cdt='cdtemp'
 #Now with extra shibe
 alias wow='git status'
 alias very='git'
