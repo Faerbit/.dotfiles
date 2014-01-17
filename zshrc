@@ -39,3 +39,4 @@ then
 fi
 source ~/.zsh_functions
 export EDITOR=vim
+export PATH=$PATH:/home/fab/bin
