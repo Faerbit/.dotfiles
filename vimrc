@@ -14,6 +14,7 @@ set autowrite
 set cmdheight=2
 set wildmode=longest,list,full
 set wildmenu
+set wildignorecase
 syntax on
 filetype plugin indent on
 "Change working dir to current dir
