@@ -31,3 +31,7 @@ endif
 if argc() == 2
     silent vertical all
 endif
+
+"Map <F8> on python files
+au FileType python :map <F10> :Coveragepy show<cr>
+au FileType python :imap <F10> <Esc><F10>
