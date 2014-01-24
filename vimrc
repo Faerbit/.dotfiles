@@ -19,7 +19,9 @@ syntax on
 filetype plugin indent on
 "Change working dir to current dir
 :cd %:p:h
-:nmap <F9> :! ~/.vim/custom_make.sh<cr>
+"execute Makefile
+:map <F9> :! ~/.vim/custom_make.sh<cr>
+:imap <F9> <Esc><F9>
 "only execute pathogen if it exists
 runtime! autoload/pathogen.vim
 if exists("*pathogen#infect")
