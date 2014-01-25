@@ -8,7 +8,7 @@ alias ping='ping '
 alias aur-update='yaourt -Sbu --aur --noconfirm'
 alias clear-orphans='pacman -Rns $(pacman -Qqdt)'
 alias rmtex='rm *.log; rm *.aux'
-alias ghibernate='gnome-screensaver-command --lock && sudo pm-hibernate'
+alias ghibernate='gnome-screensaver-command --lock && sudo systemctl hibernate'
 alias load-vboxdrivers='modprobe -a vboxdrv vboxnetadp vboxnetflt'
 #overwrite "default(?)" with my own function
 alias cdt='cdtemp'
