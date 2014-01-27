@@ -40,3 +40,11 @@ fi
 source ~/.zsh_functions
 export EDITOR=vim
 export PATH=$PATH:/home/fab/bin
+
+#vi mode
+bindkey -v
+export KEYTIMEOUT=1
+
+#backspace working after returning from command mode
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
