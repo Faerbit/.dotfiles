@@ -45,6 +45,9 @@ export PATH=$PATH:/home/fab/bin
 bindkey -v
 export KEYTIMEOUT=1
 
+bindkey -M vicmd 'k' history-beginning-search-backward
+bindkey -M vicmd 'j' history-beginning-search-forward
+
 #backspace working after returning from command mode
 bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
