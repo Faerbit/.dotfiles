@@ -1,3 +1,7 @@
+hr(){
+    print ${(l:COLUMNS::=:)}
+}
+
 copy_img_to_usb(){
     if [[ $1 = "" ]]
     then
