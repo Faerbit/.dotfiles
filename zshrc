@@ -19,8 +19,7 @@ alias much='git'
 alias such='git'
 #Do not store commmands with leading space
 setopt HIST_IGNORE_SPACE
-#Do not store ls and cd
-alias cd=' cd'
+#Do not store ls
 alias ls=' ls --color=auto'
 alias resource='source ~/.zshrc'
 if [ -f .zsh_environment ]
