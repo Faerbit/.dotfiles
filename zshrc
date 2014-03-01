@@ -41,7 +41,7 @@ then
 fi
 source ~/.zsh_functions
 export EDITOR=vim
-export PATH=$PATH:/home/fab/bin
+export PATH=$PATH:/home/fab/bin:/home/fab/.gem/ruby/2.1.0/bin
 
 #vi mode
 bindkey -v
