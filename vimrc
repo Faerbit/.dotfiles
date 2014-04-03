@@ -15,6 +15,7 @@ set cmdheight=2
 set wildmode=longest,list,full
 set wildmenu
 set wildignorecase
+set ignorecase
 set smartcase
 syntax on
 filetype plugin indent on
