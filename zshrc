@@ -8,7 +8,7 @@ alias ping='ping '
 alias aur-update='pacaur -Syu --devel --noconfirm'
 alias clear-orphans='pacman -Rns $(pacman -Qqdt)'
 alias rmtex='rm *.log; rm *.aux'
-alias ghibernate='gnome-screensaver-command --lock && sudo systemctl hibernate'
+alias chibernate='cinnamon-screensaver-command --lock && sudo systemctl hibernate'
 alias load-vboxdrivers='modprobe -a vboxdrv vboxnetadp vboxnetflt'
 alias mount-chroot='sudo mount /mnt/tmpfs; sudo mkdir /mnt/tmpfs/chroot{32,64}'
 # british mnemonic finder
