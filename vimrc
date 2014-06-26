@@ -3,23 +3,24 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+if exists("vundle#begin")
+    call vundle#begin()
+    " alternatively, pass a path where Vundle should install plugins
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+    " let Vundle manage Vundle, required
+    Plugin 'gmarik/Vundle.vim'
 
-"Other plugins
-Plugin 'tomtom/tlib_vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'alfredodeza/coveragepy.vim'
-Plugin 'valloric/youcompleteme'
+    "Other plugins
+    Plugin 'tomtom/tlib_vim'
+    Plugin 'MarcWeber/vim-addon-mw-utils'
+    Plugin 'garbas/vim-snipmate'
+    Plugin 'honza/vim-snippets'
+    Plugin 'alfredodeza/coveragepy.vim'
+    Plugin 'valloric/youcompleteme'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+    " All of your Plugins must be added before the following line
+    call vundle#end()            " required
+endif
 
 set background=dark
 set autoindent
@@ -48,11 +49,6 @@ filetype plugin indent on
 "execute Makefile
 :map <F9> :! ~/.vim/custom_make.sh<cr>
 :imap <F9> <Esc><F9>
-"only execute pathogen if it exists
-runtime! autoload/pathogen.vim
-if exists("*pathogen#infect")
-    execute pathogen#infect()
-endif
 "Split view if multiple files are opened
 if argc() == 2
     silent vertical all
