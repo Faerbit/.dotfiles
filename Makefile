@@ -7,8 +7,8 @@ symlinks:
 setup-vim:
 	mkdir -p ../.vim
 	cp -r vim/* ../.vim
+	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	chmod +x ../.vim/custom_make.sh
-	cd ../.vim/bundle; make -f Makefile init
 
 sensitive:
 	multigpg extract zsh_sensitive.tar.gpg zsh_sensitive
