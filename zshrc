@@ -15,11 +15,7 @@ alias mount-chroot='sudo mount /mnt/tmpfs; sudo mkdir /mnt/tmpfs/chroot{32,64}'
 alias mnemonic="cat /usr/share/dict/british | sed -r -n '/^.{5,10}$/p' | sed \"s/'//g\" | tr '[:upper:]' '[:lower:]' | shuf -n 1"
 #overwrite "default(?)" with my own function
 alias cdt='cdtemp'
-#Now with extra shibe
-alias wow='git status'
-alias very='git'
-alias much='git'
-alias such='git'
+alias gst='git status'
 alias resource='source ~/.zshrc'
 if [ -f .zsh_environment ]
 then
