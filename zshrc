@@ -18,6 +18,8 @@ alias cdt='cdtemp'
 alias gst='git status'
 alias gdf='git diff'
 alias gdfs='git diff --staged'
+alias gad='git add'
+alias gcm='git commit'
 alias resource='source ~/.zshrc'
 if [ -f .zsh_environment ]
 then
