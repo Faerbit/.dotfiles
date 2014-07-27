@@ -16,6 +16,8 @@ alias mnemonic="cat /usr/share/dict/british | sed -r -n '/^.{5,10}$/p' | sed \"s
 #overwrite "default(?)" with my own function
 alias cdt='cdtemp'
 alias gst='git status'
+alias gdf='git diff'
+alias gdfs='git diff --staged'
 alias resource='source ~/.zshrc'
 if [ -f .zsh_environment ]
 then
