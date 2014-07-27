@@ -37,6 +37,7 @@ set nofoldenable
 set foldlevel=99
 set autowrite
 set cmdheight=2
+set scrolloff=7
 set wildmode=longest,list,full
 set wildmenu
 set wildignorecase
