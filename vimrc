@@ -43,7 +43,6 @@ set wildmenu
 set wildignorecase
 set ignorecase
 set smartcase
-set mouse=a
 syntax on
 filetype plugin indent on
 "Change working dir to current dir
