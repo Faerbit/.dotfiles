@@ -17,7 +17,6 @@ if exists("*vundle#begin")
     Plugin 'garbas/vim-snipmate'
     Plugin 'honza/vim-snippets'
     Plugin 'alfredodeza/coveragepy.vim'
-    Plugin 'valloric/youcompleteme'
 
     " All of your Plugins must be added before the following line
     call vundle#end()            " required
