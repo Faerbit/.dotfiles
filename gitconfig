@@ -3,8 +3,8 @@
 	email = faerbit@gmail.com
 [credential]
 	helper = cache
-[push]
-	default = simple
 [core]
 	editor = vim -c 'startinsert'
 	excludesfile = ~/.globalgitignore
+[push]
+	default = matching
