@@ -11,6 +11,7 @@ alias rmtex='rm *.log; rm *.aux'
 alias chibernate='cinnamon-screensaver-command --lock && sudo systemctl hibernate'
 alias load-vboxdrivers='modprobe -a vboxdrv vboxnetadp vboxnetflt'
 alias mount-chroot='sudo mount /mnt/tmpfs; sudo mkdir /mnt/tmpfs/chroot{32,64}'
+alias open='xdg-open'
 # british mnemonic finder
 alias mnemonic="cat /usr/share/dict/british | sed -r -n '/^.{5,10}$/p' | sed \"s/'//g\" | tr '[:upper:]' '[:lower:]' | shuf -n 1"
 #overwrite "default(?)" with my own function
