@@ -7,4 +7,4 @@
 	editor = vim -c 'startinsert'
 	excludesfile = ~/.globalgitignore
 [push]
-	default = matching
+	default = simple
