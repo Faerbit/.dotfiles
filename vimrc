@@ -44,6 +44,7 @@ set ignorecase
 set smartcase
 syntax on
 filetype plugin indent on
+imap jk <Esc>
 "Change working dir to current dir
 :cd %:p:h
 "execute Makefile
