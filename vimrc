@@ -46,6 +46,7 @@ syntax on
 filetype plugin indent on
 imap jk <Esc>
 map <F2> :set nonumber!<CR>
+set pastetoggle=<F3>
 "Change working dir to current dir
 :cd %:p:h
 "execute Makefile
