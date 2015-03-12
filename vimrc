@@ -45,6 +45,7 @@ set smartcase
 syntax on
 filetype plugin indent on
 imap jk <Esc>
+map <F2> :set nonumber!<CR>
 "Change working dir to current dir
 :cd %:p:h
 "execute Makefile
