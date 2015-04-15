@@ -12,6 +12,7 @@ if exists("*vundle#begin")
     Plugin 'gmarik/Vundle.vim'
 
     "Other plugins
+    Plugin 'wting/rust.vim'
     Plugin 'tomtom/tlib_vim'
     Plugin 'MarcWeber/vim-addon-mw-utils'
     Plugin 'garbas/vim-snipmate'
@@ -62,4 +63,4 @@ au FileType python :map <F10> :Coveragepy show<cr>
 au FileType python :imap <F10> <Esc><F10>
 
 "Map <F9> on Latex files
-au FileType tex :map <F9> :! pdflatex %:t; rm *.aux; rm *.log<cr>
+au FileType tex :map <F9> :! if [ -f Makefile ]; then; make; else; pdflatex %:t; rm *.aux; rm *.log; fi<cr>
