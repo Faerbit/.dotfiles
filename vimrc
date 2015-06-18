@@ -18,6 +18,8 @@ if exists("*vundle#begin")
     Plugin 'garbas/vim-snipmate'
     Plugin 'honza/vim-snippets'
     Plugin 'alfredodeza/coveragepy.vim'
+    Plugin 'tikhomirov/vim-glsl'
+    Plugin 'ntpeters/vim-better-whitespace'
 
     " All of your Plugins must be added before the following line
     call vundle#end()            " required
@@ -59,6 +61,9 @@ if argc() == 2
 endif
 
 "Map <F8> on python files
+au FileType python :map <F8> i <F8>
+au FileType python :imap <F8> import pdb; pdb.set_trace()<ESC>
+"Map <F10> on python files
 au FileType python :map <F10> :Coveragepy show<cr>
 au FileType python :imap <F10> <Esc><F10>
 

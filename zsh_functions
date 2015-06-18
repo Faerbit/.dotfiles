@@ -1,3 +1,14 @@
+sysupgrade(){
+    old_kernel=$(pacman -Q linux-raspberrypi | awk '{print $2 }')
+    sudo pacmatic -Syu
+    new_kernel=$(pacman -Q linux-raspberrypi | awk '{print $2 }')
+    if [[ $old_kernel != $new_kernel ]]
+    then
+        sudo mkinitcpio -k "$new_kernel-ARCH" -g /boot/initrd
+    fi
+    cower -u
+}
+
 copy_img_to_usb(){
     if [[ $1 = "" ]]
     then
@@ -63,4 +74,8 @@ pacman_disowned(){
       \( -type d -printf '%p/\n' -o -print \) | sort > "$fs"
 
     comm -23 "$fs" "$db"
+}
+
+virtual_env_prompt() {
+    REPLY=${VIRTUAL_ENV+(${VIRTUAL_ENV:t}) }
 }
