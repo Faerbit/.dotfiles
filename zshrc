@@ -22,6 +22,7 @@ alias gdfs='git diff --staged'
 alias gad='git add'
 alias gcm='git commit'
 alias resource='source ~/.zshrc'
+alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep "time to empty"'
 if [ -f .zsh_environment ]
 then
   source ~/.zsh_environment
