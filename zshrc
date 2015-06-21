@@ -82,7 +82,13 @@ bindkey -M vicmd 'j' history-beginning-search-forward
 bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 
-source /usr/share/doc/pkgfile/command-not-found.zsh
+if [ -f /usr/share/doc/pkgfile/command-not-found.zsh ]
+then
+    source /usr/share/doc/pkgfile/command-not-found.zsh
+fi
 
-# Automatically source virtualenv 
-source /usr/bin/virtualenvwrapper_lazy.sh
+if [ -f /usr/bin/virtualenvwrapper_lazy.sh ]
+then
+    # Automatically source virtualenv 
+    source /usr/bin/virtualenvwrapper_lazy.sh
+fi
