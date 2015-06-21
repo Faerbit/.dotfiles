@@ -46,6 +46,7 @@ alias gdfs='git diff --staged'
 alias gad='git add'
 alias gcm='git commit'
 alias resource='source ~/.zshrc'
+alias ls='ls --color=auto'
 if [ -f .zsh_environment ]
 then
   source ~/.zsh_environment
