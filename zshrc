@@ -46,6 +46,10 @@ alias gdfs='git diff --staged'
 alias gad='git add'
 alias gcm='git commit'
 alias resource='source ~/.zshrc'
+alias bootlfs='sudo screen -d -m VBoxHeadless -s LFS > /dev/null'
+alias emacs='emacs -nw'
+alias aiawiki='ssh aia -L 80:ldap2:80'
+alias rbtv='livestreamer twitch.tv/rocketbeanstv &'
 alias ls='ls --color=auto'
 if [ -f .zsh_environment ]
 then
@@ -63,16 +67,22 @@ then
 fi
 source ~/.zsh_functions
 export EDITOR=vim
-export PATH=$PATH:/home/fab/bin:/home/fab/.gem/ruby/2.1.0/bin
 export ASPROOT=~/.asp
+export PATH=$PATH:/home/fab/bin:/home/fab/.gem/ruby/2.2.0/bin
+export LFS=/mnt/lfs
 
 #vi mode
 bindkey -v
 export KEYTIMEOUT=1
-
+bindkey -M viins 'fd' vi-cmd-mode
 bindkey -M vicmd 'k' history-beginning-search-backward
 bindkey -M vicmd 'j' history-beginning-search-forward
 
 #backspace working after returning from command mode
 bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
+
+source /usr/share/doc/pkgfile/command-not-found.zsh
+
+# Automatically source virtualenv 
+source /usr/bin/virtualenvwrapper_lazy.sh
