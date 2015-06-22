@@ -19,6 +19,7 @@ if exists("*vundle#begin")
     Plugin 'honza/vim-snippets'
     Plugin 'alfredodeza/coveragepy.vim'
     Plugin 'tikhomirov/vim-glsl'
+    Plugin 'ntpeters/vim-better-whitespace'
 
     " All of your Plugins must be added before the following line
     call vundle#end()            " required
