@@ -1,26 +1,20 @@
-source /usr/share/zsh/scripts/zgen/zgen.zsh
-
-# check if there's no init script
-if ! zgen saved; then
-    echo "Creating a zgen save"
-
-    #zgen oh-my-zsh
-
-    # plugins
-    #zgen oh-my-zsh plugins/gitfast
-    #zgen oh-my-zsh plugins/sudo
-    #zgen oh-my-zsh plugins/command-not-found
-    #zgen load zsh-users/zsh-syntax-highlighting
-
-    ## completions
-    #zgen load zsh-users/zsh-completions src
-
-    # theme
-    zgen oh-my-zsh themes/juanghurtado
-
-    # save all to init script
-    zgen save
+# source all other zsh files
+if [ -f .zsh_environment ]
+then
+  source ~/.zsh_environment
 fi
+#for accounts whithout root
+if [ -f .zsh_grml ]
+then
+  source ~/.zsh_grml
+fi
+#for untrusted machines
+if [ -f .zsh_sensitive ]
+then
+    source ~/.zsh_sensitive
+fi
+source ~/.zsh_functions
+export EDITOR=vim
 
 alias sudo='sudo '
 alias tasks="ps -u fab"
@@ -51,22 +45,6 @@ alias emacs='emacs -nw'
 alias aiawiki='ssh aia -L 80:ldap2:80'
 alias rbtv='livestreamer twitch.tv/rocketbeanstv &'
 alias ls='ls --color=auto'
-if [ -f .zsh_environment ]
-then
-  source ~/.zsh_environment
-fi
-#for accounts whithout root
-if [ -f .zsh_grml ]
-then
-  source ~/.zsh_grml
-fi
-#for untrusted machines
-if [ -f .zsh_sensitive ]
-then
-    source ~/.zsh_sensitive
-fi
-source ~/.zsh_functions
-export EDITOR=vim
 export ASPROOT=~/.asp
 export PATH=$PATH:/home/fab/bin:/home/fab/.gem/ruby/2.2.0/bin
 export LFS=/mnt/lfs
@@ -89,6 +67,10 @@ fi
 
 if [ -f /usr/bin/virtualenvwrapper_lazy.sh ]
 then
-    # Automatically source virtualenv 
+    # Automatically source virtualenv
     source /usr/bin/virtualenvwrapper_lazy.sh
 fi
+
+# displaying current virtual env
+grml_theme_add_token virtual-env -f virtual_env_prompt '%F{magenta}' '%f'
+zstyle ':prompt:grml:left:setup' items rc virtual-env change-root user at host path vcs percent
