@@ -1,3 +1,14 @@
+sysupgrade(){
+    old_kernel=$(pacman -Q linux-raspberrypi | awk '{print $2 }')
+    sudo pacmatic -Syu
+    new_kernel=$(pacman -Q linux-raspberrypi | awk '{print $2 }')
+    if [[ $old_kernel != $new_kernel ]]
+    then
+        sudo mkinitcpio -k "$new_kernel-ARCH" -g /boot/initrd
+    fi
+    cower -u
+}
+
 copy_img_to_usb(){
     if [[ $1 = "" ]]
     then
