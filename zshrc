@@ -44,6 +44,7 @@ alias bootlfs='sudo screen -d -m VBoxHeadless -s LFS > /dev/null'
 alias emacs='emacs -nw'
 alias aiawiki='ssh aia -L 80:ldap2:80'
 alias rbtv='livestreamer twitch.tv/rocketbeanstv &'
+alias taketv='livestreamer twitch.tv/taketv &'
 alias ls='ls --color=auto'
 export ASPROOT=~/.asp
 export PATH=$PATH:/home/fab/bin:/home/fab/.gem/ruby/2.2.0/bin
@@ -69,6 +70,11 @@ if [ -f /usr/bin/virtualenvwrapper_lazy.sh ]
 then
     # Automatically source virtualenv
     source /usr/bin/virtualenvwrapper_lazy.sh
+fi
+
+if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]
+then
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # displaying current virtual env
