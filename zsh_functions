@@ -75,3 +75,7 @@ pacman_disowned(){
 
     comm -23 "$fs" "$db"
 }
+
+virtual_env_prompt() {
+    REPLY=${VIRTUAL_ENV+(${VIRTUAL_ENV:t}) }
+}

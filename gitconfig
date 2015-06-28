@@ -6,5 +6,6 @@
 [core]
 	editor = vim -c 'startinsert'
 	excludesfile = ~/.globalgitignore
+	pager = less -F -X
 [push]
 	default = simple

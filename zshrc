@@ -1,8 +1,26 @@
+# source all other zsh files
+if [ -f .zsh_environment ]
+then
+  source ~/.zsh_environment
+fi
+#for accounts whithout root
+if [ -f .zsh_grml ]
+then
+  source ~/.zsh_grml
+fi
+#for untrusted machines
+if [ -f .zsh_sensitive ]
+then
+    source ~/.zsh_sensitive
+fi
+source ~/.zsh_functions
+export EDITOR=vim
+
 alias sudo='sudo '
 alias tasks="ps -u fab"
 alias update-grub="grub-mkconfig -o /boot/grub/grub.cfg"
 alias sml2p='/home/fab/.Sync-my-L2P/Sync-my-L2P.run'
-alias update-mirrors='sh -c "reflector -p http -l 20 --sort rate | tee /etc/pacman.d/mirrorlist"'
+alias update-mirrors='sh -c "reflector -p http -l 50 --sort rate | tee /etc/pacman.d/mirrorlist"'
 alias ssh='ssh '
 alias ping='ping '
 alias aur-update='pacaur -Syu --devel --noconfirm'
@@ -41,15 +59,42 @@ fi
 source ~/.zsh_functions
 export EDITOR=vim
 export PATH=$PATH:/home/fab/bin:/home/fab/.gem/ruby/2.1.0/bin
+alias emacs='emacs -nw'
+alias aiawiki='ssh aia -L 80:ldap2:80'
+alias rbtv='livestreamer twitch.tv/rocketbeanstv &'
+alias taketv='livestreamer twitch.tv/taketv &'
+alias ls='ls --color=auto'
 export ASPROOT=~/.asp
+export PATH=$PATH:/home/fab/bin:/home/fab/.gem/ruby/2.2.0/bin
+export LFS=/mnt/lfs
 
 #vi mode
 bindkey -v
 export KEYTIMEOUT=1
-
+bindkey -M viins 'fd' vi-cmd-mode
 bindkey -M vicmd 'k' history-beginning-search-backward
 bindkey -M vicmd 'j' history-beginning-search-forward
 
 #backspace working after returning from command mode
 bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
+
+if [ -f /usr/share/doc/pkgfile/command-not-found.zsh ]
+then
+    source /usr/share/doc/pkgfile/command-not-found.zsh
+fi
+
+if [ -f /usr/bin/virtualenvwrapper_lazy.sh ]
+then
+    # Automatically source virtualenv
+    source /usr/bin/virtualenvwrapper_lazy.sh
+fi
+
+if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]
+then
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+# displaying current virtual env
+grml_theme_add_token virtual-env -f virtual_env_prompt '%F{magenta}' '%f'
+zstyle ':prompt:grml:left:setup' items rc virtual-env change-root user at host path vcs percent
