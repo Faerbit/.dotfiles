@@ -22,6 +22,8 @@ alias gdfs='git diff --staged'
 alias gad='git add'
 alias gcm='git commit'
 alias resource='source ~/.zshrc'
+alias poweroff='sudo poweroff'
+alias reboot='sudo reboot'
 if [ -f .zsh_environment ]
 then
   source ~/.zsh_environment
