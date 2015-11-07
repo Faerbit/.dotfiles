@@ -43,6 +43,9 @@ alias resource='source ~/.zshrc'
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep "time to empty"'
 alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
+alias n='ninja'
+alias cmake='cmake -G Ninja'
+alias v='vim'
 if [ -f .zsh_environment ]
 then
   source ~/.zsh_environment
