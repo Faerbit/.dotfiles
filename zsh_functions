@@ -83,3 +83,19 @@ pacman_disowned(){
 virtual_env_prompt() {
     REPLY=${VIRTUAL_ENV+(${VIRTUAL_ENV:t}) }
 }
+
+delete-old-archives() {
+    archives=$(sudo tarsnap --list-archives | sort)
+    del_archives=$(echo $archives | head -n $(($(echo $archives | wc -l) - 3)))
+    del_archives=("${(@f)del_archives}")
+    for archive in $del_archives
+    do
+        read -q "reply?Do you want to delete '$archive' ? "
+        echo ""
+        if [[ $reply == "y" ]]
+        then
+            echo "Deleting '$archive' ..."
+            sudo tarsnap -d -f "$archive"
+        fi
+    done
+}
