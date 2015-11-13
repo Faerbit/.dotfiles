@@ -24,6 +24,11 @@ if exists("*vundle#begin")
     " All of your Plugins must be added before the following line
     call vundle#end()            " required
 endif
+"Split view if multiple files are opened
+if argc() == 2
+    autocmd VimEnter * nested silent vertical all
+    "silent vertical all
+endif
 
 set background=dark
 set autoindent
@@ -45,20 +50,17 @@ set wildmenu
 set wildignorecase
 set ignorecase
 set smartcase
+set ruler
 syntax on
 filetype plugin indent on
 imap jk <Esc>
 map <F2> :set nonumber!<CR>
 set pastetoggle=<F3>
 "Change working dir to current dir
-:cd %:p:h
+":cd %:p:h
 "execute Makefile
 :map <F9> :! ~/.vim/custom_make.sh<cr>
 :imap <F9> <Esc><F9>
-"Split view if multiple files are opened
-if argc() == 2
-    silent vertical all
-endif
 
 "Map <F8> on python files
 au FileType python :map <F8> i <F8>
