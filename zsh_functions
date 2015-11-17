@@ -48,11 +48,11 @@ change_dir(){
     else
         cd "$2"
     fi
-    if [ ! $(expr match $(pwd) '\(/tmp/tmp.[a-zA-Z0-9]*\)') ] 
-    then 
-        echo "Deleting tmp folder $1." 
+    if [ ! $(expr match $(pwd) '\(/tmp/tmp.[a-zA-Z0-9]*\)') ]
+    then
+        echo "Deleting tmp folder $1."
         rm -rf "$1"
-        unalias cd 
+        unalias cd
     fi
 }
 
@@ -98,12 +98,13 @@ delete-old-archives() {
             sudo tarsnap -d -f "$archive"
         fi
     done
+}
 
 update-mirrors() {
     if [[ $(uname -m) != "x86_64" ]]
     then
         echo "Not supported on this architecture."
     else
-        sh -c "reflector -p http -l 50 --sort rate | tee /etc/pacman.d/mirrorlist"
+        sudo sh -c "reflector -p http -l 50 --sort rate | tee /etc/pacman.d/mirrorlist"
     fi
 }
