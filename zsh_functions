@@ -83,3 +83,12 @@ pacman_disowned(){
 virtual_env_prompt() {
     REPLY=${VIRTUAL_ENV+(${VIRTUAL_ENV:t}) }
 }
+
+update-mirrors() {
+    if [[ $(uname -m) != "x86_64" ]]
+    then
+        echo "Not supported on this architecture."
+    else
+        sh -c "reflector -p http -l 50 --sort rate | tee /etc/pacman.d/mirrorlist"
+    fi
+}
