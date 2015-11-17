@@ -45,7 +45,12 @@ alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
 alias n='ninja'
 alias cmake='cmake -G Ninja'
-alias v='vim'
+if test -f $(which nvim)
+then
+    alias v='nvim'
+else
+    alias v='vim'
+fi
 if [ -f .zsh_environment ]
 then
   source ~/.zsh_environment
