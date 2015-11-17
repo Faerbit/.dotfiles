@@ -1,4 +1,4 @@
-all: symlinks setup-vim
+all: symlinks
 
 symlinks:
 	chmod +x make_symlinks.sh
