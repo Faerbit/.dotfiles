@@ -1,3 +1,7 @@
+twitch() {
+    livestreamer "twitch.tv/$1" &
+}
+
 sysupgrade(){
     old_kernel=$(pacman -Q linux-raspberrypi | awk '{print $2 }')
     sudo pacmatic -Syu
