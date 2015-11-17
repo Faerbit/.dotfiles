@@ -98,4 +98,12 @@ delete-old-archives() {
             sudo tarsnap -d -f "$archive"
         fi
     done
+
+update-mirrors() {
+    if [[ $(uname -m) != "x86_64" ]]
+    then
+        echo "Not supported on this architecture."
+    else
+        sh -c "reflector -p http -l 50 --sort rate | tee /etc/pacman.d/mirrorlist"
+    fi
 }
