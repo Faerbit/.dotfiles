@@ -44,7 +44,7 @@ alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
 alias n='ninja'
 alias cmake='cmake -G Ninja'
-if test -f $(which nvim)
+if test -f "$(which nvim)"
 then
     alias v='nvim'
 else
