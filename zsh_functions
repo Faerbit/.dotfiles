@@ -85,6 +85,7 @@ virtual_env_prompt() {
 }
 
 delete-old-archives() {
+    sudo tarsnap --fsck
     archives=$(sudo tarsnap --list-archives | sort)
     del_archives=$(echo $archives | head -n $(($(echo $archives | wc -l) - 3)))
     del_archives=("${(@f)del_archives}")
