@@ -3,10 +3,10 @@ twitch() {
 }
 
 sysupgrade(){
-    old_kernel=$(pacman -Q linux-raspberrypi | awk '{print $2 }')
+    old_kernel=$(pacman -Q linux-raspberrypi 2>/dev/null | awk '{print $2 }')
     sudo pacmatic -Syu
-    new_kernel=$(pacman -Q linux-raspberrypi | awk '{print $2 }')
-    if [[ $old_kernel != $new_kernel ]]
+    new_kernel=$(pacman -Q linux-raspberrypi 2>/dev/null | awk '{print $2 }')
+    if [[ $old_kernel != $new_kernel  && $(uname -m) == 'armv7l' ]]
     then
         sudo mkinitcpio -k "$new_kernel-ARCH" -g /boot/initrd
     fi
