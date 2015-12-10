@@ -85,7 +85,6 @@ virtual_env_prompt() {
 }
 
 delete-old-archives() {
-    sudo tarsnap --fsck
     archives=$(sudo tarsnap --list-archives | sort)
     del_archives=$(echo $archives | head -n $(($(echo $archives | wc -l) - 3)))
     del_archives=("${(@f)del_archives}")
@@ -108,4 +107,12 @@ update-mirrors() {
     else
         sudo sh -c "reflector -p http -l 50 --sort rate | tee /etc/pacman.d/mirrorlist"
     fi
+}
+
+old-abi() {
+    for i in $(pacman -Qqm); do
+      if pacman -Qql $i | xargs readelf -d 2>/dev/null | grep -q libstdc++.so.6; then
+        echo $i;
+      fi;
+    done
 }
