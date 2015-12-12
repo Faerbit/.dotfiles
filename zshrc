@@ -44,6 +44,7 @@ alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
 alias n='ninja'
 alias cmake='cmake -G Ninja'
+alias wlan='sudo netctl-auto list'
 if test -f "$(which nvim)"
 then
     alias v='nvim'
