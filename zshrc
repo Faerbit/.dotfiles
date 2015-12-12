@@ -45,6 +45,7 @@ alias reboot='sudo reboot'
 alias n='ninja'
 alias cmake='cmake -G Ninja'
 alias wlan='sudo netctl-auto list'
+alias adb-connect='adb connect 192.168.1.138:5555'
 if test -f "$(which nvim)"
 then
     alias v='nvim'
