@@ -68,14 +68,13 @@ then
 fi
 source ~/.zsh_functions
 export EDITOR=vim
-export PATH=$PATH:/home/fab/bin:/home/fab/.gem/ruby/2.1.0/bin
 alias emacs='emacs -nw'
 alias aiawiki='ssh aia -L 80:ldap2:80'
 alias rbtv='livestreamer twitch.tv/rocketbeanstv &'
 alias taketv='livestreamer twitch.tv/taketv &'
 alias ls='ls --color=auto'
 export ASPROOT=~/.asp
-export PATH=$PATH:/home/fab/bin:/home/fab/.gem/ruby/2.2.0/bin
+export PATH=$PATH:/home/fab/bin:/home/fab/.gem/ruby/2.3.0/bin
 export LFS=/mnt/lfs
 
 #vi mode
