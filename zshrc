@@ -24,7 +24,7 @@ alias sml2p='/home/fab/.Sync-my-L2P/Sync-my-L2P.run'
 alias ssh='ssh '
 alias ping='ping '
 alias aur-update='pacaur -Syu --devel --noconfirm'
-alias clear-orphans='pacman -Rns $(pacman -Qqdt)'
+alias clear-orphans='sudo pacman -Rns $(pacman -Qqdt)'
 alias rmtex='rm *.log; rm *.aux'
 alias chibernate='cinnamon-screensaver-command --lock && sudo systemctl hibernate'
 alias load-vboxdrivers='modprobe -a vboxdrv vboxnetadp vboxnetflt'
@@ -45,7 +45,9 @@ alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
 alias n='ninja'
 alias cmake='cmake -G Ninja'
-if test -f $(which nvim)
+alias wlan='sudo netctl-auto list'
+alias adb-connect='adb connect 192.168.1.138:5555'
+if test -f "$(which nvim)"
 then
     alias v='nvim'
 else
@@ -67,14 +69,13 @@ then
 fi
 source ~/.zsh_functions
 export EDITOR=vim
-export PATH=$PATH:/home/fab/bin:/home/fab/.gem/ruby/2.1.0/bin
 alias emacs='emacs -nw'
 alias aiawiki='ssh aia -L 80:ldap2:80'
 alias rbtv='livestreamer twitch.tv/rocketbeanstv &'
 alias taketv='livestreamer twitch.tv/taketv &'
 alias ls='ls --color=auto'
 export ASPROOT=~/.asp
-export PATH=$PATH:/home/fab/bin:/home/fab/.gem/ruby/2.2.0/bin
+export PATH=$PATH:/home/fab/bin:/home/fab/.gem/ruby/2.3.0/bin
 export LFS=/mnt/lfs
 
 #vi mode
