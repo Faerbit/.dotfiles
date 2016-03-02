@@ -15,6 +15,7 @@ then
 fi
 source ~/.zsh_functions
 export EDITOR=vim
+export SYSTEMD_EDITOR=vim
 
 alias sudo='sudo '
 alias tasks="ps -u fab"
