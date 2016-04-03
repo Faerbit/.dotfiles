@@ -15,10 +15,11 @@ then
 fi
 source ~/.zsh_functions
 export EDITOR=vim
+export SYSTEMD_EDITOR=vim
 
 alias sudo='sudo '
 alias tasks="ps -u fab"
-alias update-grub="grub-mkconfig -o /boot/grub/grub.cfg"
+alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias sml2p='/home/fab/.Sync-my-L2P/Sync-my-L2P.run'
 alias ssh='ssh '
 alias ping='ping '

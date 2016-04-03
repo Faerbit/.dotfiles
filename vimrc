@@ -19,7 +19,8 @@ if exists("*vundle#begin")
     Plugin 'honza/vim-snippets'
     Plugin 'alfredodeza/coveragepy.vim'
     Plugin 'tikhomirov/vim-glsl'
-    Plugin 'ntpeters/vim-better-whitespace'
+    Plugin 'chrisbra/vim-show-whitespace'
+    Plugin 'krisajenkins/vim-projectlocal'
 
     " All of your Plugins must be added before the following line
     call vundle#end()            " required
@@ -71,3 +72,6 @@ au FileType python :imap <F10> <Esc><F10>
 
 "Map <F9> on Latex files
 au FileType tex :map <F9> :! if [ -f Makefile ]; then; make; else; pdflatex %:t; rm *.aux; rm *.log; fi<cr>
+
+"Highlight chars after column 80
+match ErrorMsg '\%>80v.\+'
