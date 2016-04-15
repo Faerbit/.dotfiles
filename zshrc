@@ -44,6 +44,7 @@ alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep "ti
 alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
 alias n='ninja'
+alias m='make'
 alias cmake='cmake -G Ninja'
 alias wlan='sudo netctl-auto list'
 alias adb-connect='adb connect 192.168.1.138:5555'
