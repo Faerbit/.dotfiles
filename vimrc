@@ -21,6 +21,8 @@ if exists("*vundle#begin")
     Plugin 'tikhomirov/vim-glsl'
     Plugin 'chrisbra/vim-show-whitespace'
     Plugin 'krisajenkins/vim-projectlocal'
+    Plugin 'xolox/vim-misc'
+    Plugin 'rhysd/vim-clang-format'
 
     " All of your Plugins must be added before the following line
     call vundle#end()            " required
@@ -75,3 +77,7 @@ au FileType tex :map <F9> :! if [ -f Makefile ]; then; make; else; pdflatex %:t;
 
 "Highlight chars after column 80
 match ErrorMsg '\%>80v.\+'
+
+"Map ctrl+f to ClangFormat
+:nnoremap <C-f> :ClangFormat<CR>
+:vnoremap <C-f> :ClangFormat<CR>
