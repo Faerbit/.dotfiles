@@ -76,7 +76,19 @@ au FileType python :imap <F10> <Esc><F10>
 au FileType tex :map <F9> :! if [ -f Makefile ]; then; make; else; pdflatex %:t; rm *.aux; rm *.log; fi<cr>
 
 "Highlight chars after column 80
-match ErrorMsg '\%>80v.\+'
+let s:activatedh=0
+highlight OverLength ctermbg=darkred guibg=#ffd9d9
+function! ToggleH()
+    if s:activatedh == 0
+        let s:activatedh = 1
+        match OverLength '\%>80v.\+'
+    else
+        let s:activatedh = 0
+        match none
+    endif
+endfunction
+nnoremap <F4> :call ToggleH()<CR>
+call ToggleH()
 
 "Map ctrl+f to ClangFormat
 :nnoremap <C-f> :ClangFormat<CR>
