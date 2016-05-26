@@ -48,12 +48,13 @@ alias m='make'
 alias cmake='cmake -G Ninja'
 alias wlan='sudo netctl-auto list'
 alias adb-connect='adb connect 192.168.1.138:5555'
-if test -f "$(which nvim)"
-then
-    alias v='nvim'
-else
-    alias v='vim'
-fi
+#if test -f "$(which nvim)"
+#then
+#    alias v='nvim'
+#else
+#    alias v='vim'
+#fi
+alias v='vim'
 if [ -f .zsh_environment ]
 then
   source ~/.zsh_environment
