@@ -4,7 +4,7 @@ twitch() {
 
 sysupgrade(){
     old_kernel=$(pacman -Q linux-raspberrypi 2>/dev/null | awk '{print $2 }')
-    LANG=de_DE.UTF-8 sudo pacmatic -Syu
+    sudo pacmatic -Syu
     new_kernel=$(pacman -Q linux-raspberrypi 2>/dev/null | awk '{print $2 }')
     if [[ $old_kernel != $new_kernel  && $(uname -m) == 'armv7l' ]]
     then
