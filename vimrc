@@ -19,7 +19,10 @@ if exists("*vundle#begin")
     Plugin 'honza/vim-snippets'
     Plugin 'alfredodeza/coveragepy.vim'
     Plugin 'tikhomirov/vim-glsl'
-    Plugin 'ntpeters/vim-better-whitespace'
+    Plugin 'chrisbra/vim-show-whitespace'
+    Plugin 'krisajenkins/vim-projectlocal'
+    Plugin 'xolox/vim-misc'
+    Plugin 'rhysd/vim-clang-format'
 
     " All of your Plugins must be added before the following line
     call vundle#end()            " required
@@ -71,3 +74,22 @@ au FileType python :imap <F10> <Esc><F10>
 
 "Map <F9> on Latex files
 au FileType tex :map <F9> :! if [ -f Makefile ]; then; make; else; pdflatex %:t; rm *.aux; rm *.log; fi<cr>
+
+"Highlight chars after column 80
+let s:activatedh=0
+highlight OverLength ctermbg=darkred guibg=#ffd9d9
+function! ToggleH()
+    if s:activatedh == 0
+        let s:activatedh = 1
+        match OverLength '\%>80v.\+'
+    else
+        let s:activatedh = 0
+        match none
+    endif
+endfunction
+nnoremap <F4> :call ToggleH()<CR>
+call ToggleH()
+
+"Map ctrl+f to ClangFormat
+:nnoremap <C-f> :ClangFormat<CR>
+:vnoremap <C-f> :ClangFormat<CR>

@@ -106,7 +106,8 @@ update-mirrors() {
     then
         echo "Not supported on this architecture."
     else
-        sudo sh -c "reflector -p http -l 50 --sort rate | tee /etc/pacman.d/mirrorlist"
+        sudo sh -c "reflector -p http -l 50 --sort rate | tee /etc/pacman.d/mirrorlist_"
+        sudo sed -i 's/mirrorlist$/mirrorlist_/g' /etc/pacman.conf
     fi
 }
 

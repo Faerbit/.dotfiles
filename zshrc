@@ -40,10 +40,11 @@ alias gdfs='git diff --staged'
 alias gad='git add'
 alias gcm='git commit'
 alias resource='source ~/.zshrc'
-alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep "time to empty"'
+alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep "time to"'
 alias poweroff='sudo poweroff'
 alias reboot='sudo reboot'
 alias n='ninja'
+alias m='make'
 alias cmake='cmake -G Ninja'
 alias wlan='sudo netctl-auto list'
 alias adb-connect='adb connect 192.168.1.138:5555'
@@ -76,7 +77,7 @@ alias rbtv='livestreamer twitch.tv/rocketbeanstv &'
 alias taketv='livestreamer twitch.tv/taketv &'
 alias ls='ls --color=auto'
 export ASPROOT=~/.asp
-export PATH=$PATH:/home/fab/bin:/home/fab/.gem/ruby/2.3.0/bin
+export PATH=$PATH:/home/fab/bin:/home/fab/.gem/ruby/2.3.0/bin:~/.local/bin
 export LFS=/mnt/lfs
 
 #vi mode
