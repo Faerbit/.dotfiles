@@ -48,7 +48,7 @@ alias m='make'
 alias cmake='cmake -G Ninja'
 alias wlan='sudo netctl-auto list'
 alias adb-connect='adb connect 192.168.1.138:5555'
-alias sysupgrade='sudo _sysupgrade'
+alias sysupgrade='sudo zsh -ci _sysupgrade'
 if test -f "$(which nvim)"
 then
     alias v='nvim'
