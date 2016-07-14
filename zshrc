@@ -1,17 +1,22 @@
 # source all other zsh files
-if [ -f .zsh_environment ]
+if [ -f ~/.zsh_environment ]
 then
   source ~/.zsh_environment
 fi
 #for accounts whithout root
-if [ -f .zsh_grml ]
+if [ -f ~/.zsh_grml ]
 then
   source ~/.zsh_grml
 fi
 #for untrusted machines
-if [ -f .zsh_sensitive ]
+if [ -f ~/.zsh_sensitive ]
 then
     source ~/.zsh_sensitive
+fi
+#for accounts whithout root
+if [ -f ~/.zsh_grml ]
+then
+  source ~/.zsh_grml
 fi
 source ~/.zsh_functions
 export EDITOR=vim
@@ -54,20 +59,6 @@ then
     alias v='nvim'
 else
     alias v='vim'
-fi
-if [ -f .zsh_environment ]
-then
-  source ~/.zsh_environment
-fi
-#for accounts whithout root
-if [ -f .zsh_grml ]
-then
-  source ~/.zsh_grml
-fi
-#for untrusted machines
-if [ -f .zsh_sensitive ]
-then
-    source ~/.zsh_sensitive
 fi
 source ~/.zsh_functions
 export EDITOR=vim
