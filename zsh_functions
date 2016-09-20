@@ -84,9 +84,9 @@ virtual_env_prompt() {
     REPLY=${VIRTUAL_ENV+(${VIRTUAL_ENV:t}) }
 }
 
-delete-old-archives() {
-    sudo tarsnap --fsck
-    archives=$(sudo tarsnap --list-archives | sort)
+_delete-old-archives() {
+    tarsnap --fsck
+    archives=$(tarsnap --list-archives | sort)
     del_archives=$(echo $archives | head -n $(($(echo $archives | wc -l) - 3)))
     del_archives=("${(@f)del_archives}")
     for archive in $del_archives
@@ -96,7 +96,7 @@ delete-old-archives() {
         if [[ $reply == "y" ]]
         then
             echo "Deleting '$archive' ..."
-            sudo tarsnap -d -f "$archive"
+            tarsnap -d -f "$archive"
         fi
     done
 }

@@ -54,6 +54,7 @@ alias cmake='cmake -G Ninja'
 alias wlan='sudo netctl-auto list'
 alias adb-connect='adb connect 192.168.1.138:5555'
 alias sysupgrade='sudo zsh -ci _sysupgrade'
+alias delete-old-archives='sudo zsh -ci _delete-old-archives'
 if test -f "$(which nvim)"
 then
     alias v='nvim'
@@ -64,7 +65,7 @@ source ~/.zsh_functions
 export EDITOR=vim
 alias emacs='emacs -nw'
 alias aiawiki='ssh aia -L 80:ldap2:80'
-alias rbtv='livestreamer twitch.tv/rocketbeanstv &'
+alias rbtv='livestreamer "https://www.youtube.com/watch?v=mT0TbIqBliw" &'
 alias taketv='livestreamer twitch.tv/taketv &'
 alias ls='ls --color=auto'
 export ASPROOT=~/.asp
