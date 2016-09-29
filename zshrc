@@ -55,6 +55,7 @@ alias wlan='sudo netctl-auto list'
 alias adb-connect='adb connect 192.168.1.138:5555'
 alias sysupgrade='sudo zsh -ci _sysupgrade'
 alias delete-old-archives='sudo zsh -ci _delete-old-archives'
+alias clean-paccache='sudo -s -- paccache -r; paccache -ruk0'
 if test -f "$(which nvim)"
 then
     alias v='nvim'
