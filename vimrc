@@ -73,7 +73,7 @@ au FileType python :map <F10> :Coveragepy show<cr>
 au FileType python :imap <F10> <Esc><F10>
 
 "Map <F9> on Latex files
-au FileType tex :map <F9> :! if [ -f Makefile ]; then; make; else; pdflatex %:t; rm *.aux; rm *.log; fi<cr>
+au FileType tex :map <F9> :! if [ -f Makefile ]; then; make; else; latexmk -auxdir=build -outdir=build -pdf %:t; mv build/%:r.pdf .; fi<cr>
 
 "Highlight chars after column 80
 let s:activatedh=0
