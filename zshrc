@@ -53,9 +53,10 @@ alias m='make'
 alias cmake='cmake -G Ninja'
 alias wlan='sudo netctl-auto list'
 alias adb-connect='adb connect 192.168.1.138:5555'
-alias sysupgrade='sudo zsh -ci _sysupgrade'
+alias sysupgrade='sudo pacmatic -Syu; cower -u'
 alias delete-old-archives='sudo zsh -ci _delete-old-archives'
 alias clean-paccache='sudo -s -- paccache -r; paccache -ruk0'
+alias krypto="ssh -t azure screen -r"
 if test -f "$(which nvim)"
 then
     alias v='nvim'
