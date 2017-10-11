@@ -57,6 +57,7 @@ alias sysupgrade='sudo pacmatic -Syu; cower -u'
 alias delete-old-archives='sudo zsh -ci _delete-old-archives'
 alias clean-paccache='sudo -s -- paccache -r; paccache -ruk0'
 alias krypto="ssh -t azure screen -r"
+alias prefix-create-date='exiftool -d %Y%m%d-%H%M%S_%%f.%%le "-filename<CreateDate"'
 if test -f "$(which nvim)"
 then
     alias v='nvim'
