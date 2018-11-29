@@ -33,7 +33,7 @@ alias clear-orphans='sudo pacman -Rns $(pacman -Qqdt)'
 alias rmtex='rm *.log; rm *.aux'
 alias chibernate='cinnamon-screensaver-command --lock && sudo systemctl hibernate'
 alias load-vboxdrivers='modprobe -a vboxdrv vboxnetadp vboxnetflt'
-alias mount-chroot='sudo mount /mnt/tmpfs; sudo mkdir /mnt/tmpfs/chroot{32,64}'
+alias mount-chroot='sudo mount /mnt/tmpfs; sudo mkdir /mnt/tmpfs/chroot'
 alias open='xdg-open'
 # british mnemonic finder
 alias mnemonic="cat /usr/share/dict/british | sed -r -n '/^.{5,10}$/p' | sed \"s/'//g\" | tr '[:upper:]' '[:lower:]' | shuf -n 1"
@@ -53,7 +53,7 @@ alias m='make'
 alias cmake='cmake -G Ninja'
 alias wlan='sudo netctl-auto list'
 alias adb-connect='adb connect 192.168.1.138:5555'
-alias sysupgrade='sudo pacmatic -Syu; cower -u'
+alias sysupgrade='sudo pacmatic -Syu; auracle sync'
 alias delete-old-archives='sudo zsh -ci _delete-old-archives'
 alias clean-paccache='sudo -s -- paccache -r; paccache -ruk0'
 alias krypto="ssh -t azure screen -r"
