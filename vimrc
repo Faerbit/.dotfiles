@@ -1,36 +1,12 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+call plug#begin('~/.vim/plugged')
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-runtime! autoload/vundle.vim
-if exists("*vundle#begin")
-    call vundle#begin()
-    " alternatively, pass a path where Vundle should install plugins
+Plug('tpope/vim-commentary')
 
-    " let Vundle manage Vundle, required
-    Plugin 'gmarik/Vundle.vim'
+call plug#end()
 
-    "Other plugins
-    Plugin 'wting/rust.vim'
-    Plugin 'tomtom/tlib_vim'
-    Plugin 'MarcWeber/vim-addon-mw-utils'
-    Plugin 'garbas/vim-snipmate'
-    Plugin 'honza/vim-snippets'
-    Plugin 'alfredodeza/coveragepy.vim'
-    Plugin 'tikhomirov/vim-glsl'
-    Plugin 'chrisbra/vim-show-whitespace'
-    Plugin 'krisajenkins/vim-projectlocal'
-    Plugin 'xolox/vim-misc'
-    Plugin 'rhysd/vim-clang-format'
-
-    " All of your Plugins must be added before the following line
-    call vundle#end()            " required
-endif
 "Split view if multiple files are opened
 if argc() == 2
-    autocmd VimEnter * nested silent vertical all
-    "silent vertical all
+    silent vertical all
 endif
 
 set background=dark
@@ -42,9 +18,6 @@ set shiftwidth=4
 set incsearch
 set hlsearch
 set expandtab
-set foldmethod=indent
-set nofoldenable
-set foldlevel=99
 set autowrite
 set cmdheight=2
 set scrolloff=7
@@ -59,37 +32,3 @@ filetype plugin indent on
 imap jk <Esc>
 map <F2> :set nonumber!<CR>
 set pastetoggle=<F3>
-"Change working dir to current dir
-":cd %:p:h
-"execute Makefile
-:map <F9> :! ~/.vim/custom_make.sh<cr>
-:imap <F9> <Esc><F9>
-
-"Map <F8> on python files
-au FileType python :map <F8> i <F8>
-au FileType python :imap <F8> import pdb; pdb.set_trace()<ESC>
-"Map <F10> on python files
-au FileType python :map <F10> :Coveragepy show<cr>
-au FileType python :imap <F10> <Esc><F10>
-
-"Map <F9> on Latex files
-au FileType tex :map <F9> :! if [ -f Makefile ]; then; make; else; latexmk -auxdir=build -outdir=build -pdf %:t; cp build/%:r.pdf .; fi<cr>
-
-"Highlight chars after column 80
-let s:activatedh=0
-highlight OverLength ctermbg=darkred guibg=#ffd9d9
-function! ToggleH()
-    if s:activatedh == 0
-        let s:activatedh = 1
-        match OverLength '\%>80v.\+'
-    else
-        let s:activatedh = 0
-        match none
-    endif
-endfunction
-nnoremap <F4> :call ToggleH()<CR>
-call ToggleH()
-
-"Map ctrl+f to ClangFormat
-:nnoremap <C-f> :ClangFormat<CR>
-:vnoremap <C-f> :ClangFormat<CR>

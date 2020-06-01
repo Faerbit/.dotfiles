@@ -1,6 +1,6 @@
 "Split view if multiple files are opened
 if argc() == 2
-    autocmd VimEnter * nested silent vertical all
+    silent vertical all
 endif
 
 set background=dark
